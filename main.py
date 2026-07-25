@@ -63,8 +63,9 @@ while True:
 
         if not found:
             accounts.append(account)
-            print('Account created successfully')
             save_accounts()
+            print('Account created successfully')
+
 
 
 
@@ -127,7 +128,7 @@ while True:
                    print("\nDeposit successful!")
                    print(f"New Balance: ₹{account['balance']:.2f}")
                    save_accounts()
-                break
+                   break
 
         if not found:
             print("Account not found")
@@ -157,7 +158,7 @@ while True:
                     print("\nWithdrawal successful!")
                     print(f"New Balance: ₹{account['balance']:.2f}")
                     save_accounts()
-                break
+                    break
 
         if not found:
             print("Account not found")
