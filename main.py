@@ -71,8 +71,10 @@ while True:
 
     # 2. VIEW-ALL-ACCOUNTS :
     elif choice == '2':
-        if len(accounts) == 0:
+        if not accounts:
             print('No accounts found')
+            continue
+
         else:
             print('\nAccounts List:\n')
             for account in accounts:
@@ -82,12 +84,18 @@ while True:
                 print(f"Age          :{account["age"]}")
                 print(f"Phone Number :{account["phone_no"]}")
                 print(f"Balance      :{account["balance"]:.2f}")
+                print("------------------------------------")
 
 
 
 
     # 3. SEARCH-ACCOUNTS :
     elif choice == '3':
+
+        if not accounts:
+            print('No accounts found')
+            continue
+
         search_id = int(input('Enter account ID search: '))
 
         found = False
@@ -111,6 +119,11 @@ while True:
 
     # 4.  DEPOSIT-MONEY :
     elif choice == '4':
+
+        if not accounts:
+            print('No accounts found')
+            continue
+
         deposit_id = int(input("Enter Account ID: "))
 
         found = False
@@ -229,6 +242,58 @@ while True:
             print(f"Receiver Balance: ₹{receiver_account['balance']:.2f}")
 
 
+    # 8. DELETE ACCOUNT:
+    elif choice == "8":
+
+        if not accounts:
+            print('No accounts found')
+            continue
+
+        try:
+            delete_account_id = int(input("Enter Account ID to delete: "))
+        except ValueError:
+            print('Account ID must be an integer')
+            continue
+
+        found = False
+
+        for account in accounts:
+            if account["id"] == delete_account_id:
+                accounts.remove(account)
+                print(f'Account {account["id"]} deleted successfully!')
+                save_accounts()
+                found = True
+                break
+
+        if not found:
+            print("Account not found.")
+
+    # 9. TOTAL BOOKS:
+    elif choice == "9":
+
+        if not accounts:
+            print('No accounts found')
+            continue
+
+        total_money_in_bank = 0
+
+        for account in accounts:
+            total_money_in_bank += account['balance']
+
+        print("\n========== Bank Statistics ==========\n")
+        print("Total Money in Bank: ", total_money_in_bank)
+        print("Total Accounts: ", len(accounts))
+        print("\n========================================\n")
+
+
+    # 10. EXIT
+    elif choice == "10":
+        print("Thank you for using Bank Management System!")
+        break
+
+    else:
+        print("Invalid choice.")
+        print("Please enter a number between 1 and 10.")
 
 
 
