@@ -1,0 +1,23 @@
+[
+    {
+        "id": 101,
+        "name": "Ronak",
+        "age": 22,
+        "phone_no": "9876543210",
+        "balance": 8500.0
+    },
+    {
+        "id": 102,
+        "name": "Aman",
+        "age": 23,
+        "phone_no": "9123456780",
+        "balance": 12000.0
+    },
+    {
+        "id": 103,
+        "name": "Priya",
+        "age": 21,
+        "phone_no": "9988776655",
+        "balance": 5400.0
+    }
+]
