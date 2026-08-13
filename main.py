@@ -1,6 +1,3 @@
-#  Project--02 || Bank Management System
-#  using Python
-
 import json
 
 
